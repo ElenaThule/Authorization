@@ -1,0 +1,84 @@
+﻿<Window x:Class="Wpf_Authorization.Client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_Authorization"
+        mc:Ignorable="d"
+        Title="Client" Height="450" Width="800"  Icon="C:\Users\user452.CHENK\source\repos\Wpf Authorization\Wpf Authorization\Assets\icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Image
+            HorizontalAlignment="Left"
+            Source="C:\Users\user452.CHENK\source\repos\Wpf Authorization\Wpf Authorization\Assets\logo.png"></Image>
+        <Label Grid.Row="0" HorizontalAlignment="Center" Margin="335,0,75,0" Width="382" FontSize="22">
+            Товары
+        </Label>
+        <Label x:Name="fioElement"  HorizontalAlignment="Right" Width="174">
+
+        </Label>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+            <StackPanel>
+                <Label  Background="#FF76E383" >
+                    Поиск по наименованию
+                </Label>
+                <TextBox x:Name="findElem" TextChanged="findElem_TextChanged"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Background="#FF76E383">
+                    Сортировка по  производителю
+                </Label>
+                <ComboBox x:Name="sortElem" SelectionChanged="sortElem_SelectionChanged" Height="18">
+                    <ComboBoxItem FontSize="11">
+                        По возрастанию
+                    </ComboBoxItem>
+                    <ComboBoxItem FontSize="11">
+                        По убыванию
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+             
+        </StackPanel>
+        <DataGrid x:Name="productListElem"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="ID товара" Width="*" Binding="{Binding ProductArticleNumber}"
+                 />
+                <DataGridTextColumn 
+                    Header="Наименования" Width="*" Binding="{Binding ProductName}"                 
+                        />
+                <DataGridTextColumn 
+                    Header="Описание" Width="*" Binding="{Binding ProductDescription}"
+                 />
+                <DataGridTextColumn 
+                    Header="Категория" Width="*" Binding="{Binding ProductCategory}"
+                 />
+                <DataGridTextColumn 
+                    Header="Производитель" Width="*" Binding="{Binding ProductManufacturer}"
+                 />
+                <DataGridTextColumn 
+                    Header="Цена" Width="*" Binding="{Binding ProductCost}"
+                 />
+                <DataGridTextColumn 
+                    Header="Скидка" Width="*" Binding="{Binding ProductDiscountAmount}"
+                 />
+                <DataGridTextColumn 
+                    Header="Остаток на складе" Width="*" Binding="{Binding ProductQuantityInStock}"
+                 />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="3" Height="30" Width="100" HorizontalAlignment="Right"
+                Margin="10,10,30,10"  Background="#FF498C51" Click="Button_Click_3">
+            Назад
+        </Button>
+    </Grid>
+</Window>
